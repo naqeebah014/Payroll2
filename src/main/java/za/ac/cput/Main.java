@@ -15,16 +15,5 @@ public class Main {
 
 
 
-
-        //LocalDate date = LocalDate.now();
-
-        //Employee e1 = EmployeeFactory.createEmployee("12345","Wilhem",
-                //"Rothman","rothman@cput.ac.za", date,
-                //"90120254216087");
-
-
-
-       // System.out.println(e1.toString());
-
     }
 }

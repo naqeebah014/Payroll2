@@ -3,6 +3,7 @@ package za.ac.cput.service;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.springframework.beans.factory.annotation.Autowired;
 import za.ac.cput.domain.Employee;
 import za.ac.cput.factory.EmployeeFactory;
 
@@ -11,7 +12,8 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 class EmployeeServiceTest {
 
-    private static IEmployeeService service = EmployeeService.getService();
+
+    private IEmployeeService service;
     private static Employee employee = EmployeeFactory.createEmployee("100238456", "Estelle", "Zietsman");
 
 
