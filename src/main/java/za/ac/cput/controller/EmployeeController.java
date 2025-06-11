@@ -40,7 +40,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/getall")
-    public List<Employee> getall() {
+    public List<Employee> getAll() {
         return this.service.getall();
     }
 

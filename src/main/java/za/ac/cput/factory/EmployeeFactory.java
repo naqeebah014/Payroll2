@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 public class EmployeeFactory {
     public static Employee createEmployee(String employeeNumber, String firstName, String lastName) {
-       if(Helper.isNullOrEmpty(employeeNumber) || Helper.isNullOrEmpty(firstName) ||
+        if (Helper.isNullOrEmpty(employeeNumber) || Helper.isNullOrEmpty(firstName) ||
                 Helper.isNullOrEmpty(lastName))
             return null;
 
@@ -17,25 +17,22 @@ public class EmployeeFactory {
                 .build();
     }
 
-    public static Employee createEmployee(String employeeNumber, String firstName, String lastName, String email, String identityNumber) {
+    public static Employee createEmployee(String employeeNumber, String firstName, String lastName,
+                                          LocalDate dateOfBirth, String email, long identityNumber) {
         if (Helper.isNullOrEmpty(employeeNumber) || Helper.isNullOrEmpty(firstName) ||
                 Helper.isNullOrEmpty(lastName))
             return null;
 
-        if(!Helper.isValidEmail(email))
+        if (!Helper.isValidEmail(email))
             return null;
 
-        if(Helper.isNullOrEmpty(identityNumber))
-            return null;
-
-        LocalDate dateOfBirth = Helper.getDateOfBirth(identityNumber);
-
-        return new Employee.Builder().setEmployeeNumber(employeeNumber)
+        return new Employee.Builder()
+                .setEmployeeNumber(employeeNumber)
                 .setFirstName(firstName)
                 .setLastName(lastName)
                 .setEmail(email)
                 .setDateOfBirth(dateOfBirth)
-                .setIdentityNumber(identityNumber)
+                .setLongId(identityNumber)
                 .build();
     }
 }

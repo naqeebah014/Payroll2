@@ -4,17 +4,29 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.Employee;
 import za.ac.cput.factory.EmployeeFactory;
 
+import java.time.LocalDate;
+
 import static org.junit.jupiter.api.Assertions.*;
 
+@SpringBootTest
 @TestMethodOrder(MethodOrderer.MethodName.class)
 class EmployeeServiceTest {
 
 
+    @Autowired
     private IEmployeeService service;
-    private static Employee employee = EmployeeFactory.createEmployee("100238456", "Estelle", "Zietsman");
+    private static Employee employee = EmployeeFactory.createEmployee(
+            "100238456",
+            "Estelle",
+            "Zietsman",
+            LocalDate.of(1990, 5, 15),
+            "estelle.ziets@gmail.com",
+            8005151234567L
+    );
 
 
     @Test

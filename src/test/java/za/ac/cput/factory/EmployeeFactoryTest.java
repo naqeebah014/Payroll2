@@ -3,16 +3,33 @@ package za.ac.cput.factory;
 import org.junit.jupiter.api.*;
 import za.ac.cput.domain.Employee;
 
+import java.time.LocalDate;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class EmployeeFactoryTest {
 
-    private static Employee e1 = EmployeeFactory.createEmployee("30011466", "Temuso", "Makhurane");
+    private static Employee e1 = EmployeeFactory.createEmployee(
+            "30011466",
+            "Temuso",
+            "Makhurane");
 
-    private static Employee e2 = EmployeeFactory.createEmployee("30011469", "Estelle", "Zietsman","Zietsman@cput.ac.za", "74120252100089");
+    private static Employee e2 = EmployeeFactory.createEmployee(
+            "30011469",
+            "Estelle",
+            "Zietsman",
+            LocalDate.of(1974, 2, 12),
+            "Zietsman@cput.ac.za",
+            74120252100089L);
 
-    private static Employee e3 = EmployeeFactory.createEmployee("30011234", "Amlan", "Mukherjee", "amlan@gmail.com", "2012125216089");
+    private static Employee e3 = EmployeeFactory.createEmployee(
+            "30011234",
+            "Amlan",
+            "Mukherjee",
+            LocalDate.of(1995, 3, 15),
+            "amlan@gmail.com",
+            2012125216089L);
 
 
     @Test

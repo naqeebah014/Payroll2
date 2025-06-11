@@ -2,6 +2,7 @@ package za.ac.cput.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 import java.time.LocalDate;
 
@@ -9,17 +10,16 @@ import java.time.LocalDate;
 
 
 @Entity
-
+@Table(name = "employee")
 public class Employee {
     @Id
-
     private String employeeNumber;
+
     private String firstName;
     private String lastName;
     private String email;
     private LocalDate dateOfBirth;
-    private String identityNumber;
-
+    private long longId;
 
     //contact here
 
@@ -34,7 +34,7 @@ public class Employee {
         this.lastName = builder.lastName;
         this.email = builder.email;
         this.dateOfBirth = builder.dateOfBirth;
-        this.identityNumber = builder.identityNumber;
+        this.longId = builder.longId;
 
     }
 
@@ -59,8 +59,8 @@ public class Employee {
         return dateOfBirth;
     }
 
-    public String getIdentityNumber() {
-        return identityNumber;
+    public long getLongId() {
+        return longId;
     }
 
     @Override
@@ -71,7 +71,7 @@ public class Employee {
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
-                ", identityNumber='" + identityNumber + '\'' +
+                ", identityNumber='" + longId + '\'' +
                 '}';
     }
 
@@ -82,7 +82,7 @@ public class Employee {
         private String lastName;
         private String email;
         private LocalDate dateOfBirth;
-        private String identityNumber;
+        private long longId;
 
 
         //Setters
@@ -111,8 +111,8 @@ public class Employee {
             return this;
         }
 
-        public Builder setIdentityNumber(String identityNumber) {
-            this.identityNumber = identityNumber;
+        public Builder setLongId(long longId) {
+            this.longId = longId;
             return this;
         }
 
@@ -123,12 +123,13 @@ public class Employee {
             this.lastName = employee.lastName;
             this.email = employee.email;
             this.dateOfBirth = employee.dateOfBirth;
-            this.identityNumber = employee.identityNumber;
+            this.longId = employee.longId;
             return this;
         }
 
         //very important, must do!!
         public Employee build(){
+
             return new Employee(this);
         }
 

@@ -10,14 +10,11 @@ import java.util.List;
 @Service
 public class EmployeeService implements IEmployeeService{
 
+    private IEmployeeService service;
+
     @Autowired
-    private static IEmployeeService service;
-
-
     private EmployeeRepository repository;
-
-
-
+    
     //JPA Methods
 
     @Override
